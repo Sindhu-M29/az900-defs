@@ -1,0 +1,159 @@
+High Durability:
+   Your ability to recover from a disaster and to prevent the loss of data
+Solutions that recover from a disaster is known as Disaster Recovery (DR)
+
+Business Continuity Plan (BCP):
+     A business continuity plan (BCP) is a document that outlines how a business will
+continue operating during an unplanned disruption in services.
+
+Recovery Point Objective (RPO)
+the maximum acceptable amount of
+data loss after an unplanned data-loss
+incident, expressed as an amount of
+time
+
+Recovery Time Objective (RTO)
+the maximum amount of downtime your
+business can tolerate without incurring a
+significant financial loss
+How much time are you willing to go down?
+
+Azure App Service Plan:
+     Azure App Service Plan defines how you pay and what resources are available to you.
+There are 3 pricing tiers for App Service Plan:
+Shared Tiers
+There are 2 shared: Free, Shared
+Free Tier provides:
+1 GB of disk space
+⚫up to 10 apps on a single shared instance
+⚫ No SLA for availability
+• Each app has a compute quota of 60 minutes per day
+Shared Tier provides
+⚫ up to 100 apps on a single shared instance
+⚫ No SLA for availability
+Each app has a compute quota of 240 minutes per day
+Shared Tiers does not support Linux-based instances
+
+Dedicated Tiers
+Basic, Standard, Premium, PremiumV2, PremiumV3
+Basic
+⚫ More disk space
+Unlimited apps
+• 3 levels in this tier that offer varying amounts of compute
+power, memory, and disk storage
+Standard
+⚫ scale out to three dedicated instances
+⚫ SLA of 99.95% availability
+• 3 levels in this tier that offer varying amounts of compute
+power, memory, and disk storage.
+
+ACI:
+     Azure Container Instances (ACIs) allow you to launch containers without the need to worry
+about configuring or managing the underlying virtual machine.
+
+Containers can be provisioned within seconds where VMs can take several minutes
+Containers are billed per second where VMs are billed per hour (greater savings)
+Containers have granular and custom sizing of VCPUs, Memory and GPUs where VMs sizes are predetermined
+ACI can deploy both Windows and Linux containers.
+
+Container Groups are collection of containers that get
+scheduled on the same host machine.
+The containers in a container group share:
+⚫ lifecycle
+⚫ Resources
+⚫ local network
+⚫ storage volumes
+Container Groups are similar to a Kubernetes pod.
+
+A container restart policy specifies what a container should do when their process has completed.
+Azure Container Instances has 3 restart-policy options:
+Always (default) Containers are always restarted. Suited for long running tasks eg. web-servers
+Never Containers run one time only. Suited for one off tasks. eg. background jobs
+• OnFailure Containers that encounter an error.
+
+Azure Containers are stateless by default.When a container crashes or stops all state is loss.
+To persist state you need to mount an external volume Secret volume
+You can mount the following external volumes:
+ • Azure Files (file share)
+
+• Empty Directory
+• Cloud git repo
+
+Azure ExpressRoutes creates private connections between Azure datacenters and
+infrastructure on your premises or in a colocation environment
+Express Route connections don't go over the public Internet
+and as a result can offer: more reliability, faster speeds,
+consistent latencies, higher security.
+
+
+Azure Private Links allows you to establish secure connections between Azure
+resources so traffic remains within the Azure Network
+
+Azure Storage offers several types of storage accounts.
+Each with different features and their own pricing models
+• General-purpose v1 (legacy)
+General-purpose v2
+• BlobStorage (legacy)
+⚫ BlockBlobStorage
+⚫ FileStorage
+Storage accounts vary with the following features:
+Supported Services (What can I put in this storage account?)
+Blob, File, Queue, Table, Disk, and Data Lake Gen2
+Performance Tiers (how fast will my read and writes be?)
+Standard and Premium
+Access Tiers (how often do I need quick access to files?)
+Hot, Cool, Archive.
+
+Hot Use Case
+Data that's accessed frequently. ⚫ Data that's in active use or expected to be accessed frequently.
+Highest storage cost, lowest access cost ⚫ Data that's staged for processing and eventual migration to the cool access tier
+Cool Use Case
+• Data that's infrequently accessed and • Short-term backup and disaster recovery datasets
+stored for at least 30 days. ⚫ Older media content not viewed frequently anymore but is expected to be
+⚫ Lower storage cost, higher access cost available immediately when accessed
+⚫ Large data sets that need to be stored cost effectively while more data is being
+gathered for future processing.
+Archive Use Case
+• Data that's rarely accessed and stored for Long-term backup, secondary backup, and archival datasets
+at least 180 days Original (raw) data that must be preserved, even after it has been
+⚫ Lowest storage cost, highest access cost processed into final usable form.
+
+
+Account Level Tiering
+Any blob that doesn't have an explicitly assigned tier infers the tier from the Storage Account access tier setting.
+Blob-Level Tiering
+You can upload a blob to the tier of your choice.
+Changing tiers happens instantly with the exception from moving out of archive
+Rehydrating a Blob
+When moving a blob out of archive into another tier it can take several hours. This is known as "rehydrating".
+
+When moving from a cooler tier:
+The operation is billed as a write operation to the destination tier.
+Where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply.
+When moving from a hotter tier
+The operation is billed as a read from the source tier
+Where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply
+Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
+
+
+Cloud Adoption Framework is a whitepaper that is a step-by-step
+process to help organizations plan and migrate their workloads to Azure.
+
+Security alerts defines the details of affected resources such as step by step remediations.
+
+Microsoft Defender for Cloud: This is a cloud-native security solution that provides continuous monitoring and protection for your cloud resources in platforms like Azure, AWS, and Google Cloud. It helps to identify security threats, misconfigurations, and compliance issues across your cloud environment. It offers features such as threat detection, vulnerability assessment, and security posture management.
+Microsoft Defender for Cloud and Security Center: This is a unified security management platform that brings together various Microsoft security tools, including Microsoft Defender for Cloud, Microsoft Defender for Endpoint, and Microsoft Defender for Office 365. It provides a centralized dashboard for monitoring and managing security across your organization's cloud and on-premises environments. 
+It offers capabilities for threat detection, incident response, and compliance management.
+
+Azure Monitor: Think of Azure Monitor as your lookout tower. It helps you keep an eye on the overall health and performance of your ship.
+It provides insights into things like engine temperature, navigation systems, and weather conditions. If something starts going wrong, Azure Monitor alerts you so you can take action to prevent any disasters.
+
+Log Analytics: Log Analytics is like your ship's logbook. It keeps a record of everything that happens on the ship, from engine diagnostics to crew activities.
+You can use Log Analytics to search through these logs to understand what happened during past voyages and to identify any patterns or issues that need attention.
+
+Application Insights: Application Insights is your ship's crew quarters. It's where you monitor the well-being of your crew (your applications) as they work tirelessly to keep the ship running smoothly.
+Application Insights provides detailed insights into how your applications are performing, how users are interacting with them, and if any errors or issues occur during their operation.
+
+Service Health: Service Health is like your ship's communications system. It keeps you informed about any disruptions or maintenance activities happening in the azure seas. 
+Just like how you'd want to know about storms or
+
